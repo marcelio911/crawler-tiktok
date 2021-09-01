@@ -1,0 +1,26 @@
+{
+  "name": "server-crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "marcelio911",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "tiktok-scraper": "^1.4.36"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "http-errors": "~1.6.3",
+    "level": "^7.0.0",
+    "leveldown": "^6.0.1",
+    "levelup": "^5.0.1",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  }
+}

@@ -977,6 +977,13 @@ axe-core@^4.0.2:
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/axe-core/-/axe-core-4.3.3.tgz#b55cd8e8ddf659fe89b064680e1c6a4dceab0325"
   integrity sha1-tVzY6N32Wf6JsGRoDhxqTc6rAyU=
 
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
+  dependencies:
+    follow-redirects "^1.10.0"
+
 axobject-query@^2.2.0:
   version "2.2.0"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
@@ -1973,6 +1980,11 @@ flatted@^3.1.0:
   version "3.2.2"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/flatted/-/flatted-3.2.2.tgz#64bfed5cb68fe3ca78b3eb214ad97b63bedce561"
   integrity sha1-ZL/tXLaP48p4s+shStl7Y77c5WE=
+
+follow-redirects@^1.10.0:
+  version "1.14.2"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/follow-redirects/-/follow-redirects-1.14.2.tgz#cecb825047c00f5e66b142f90fed4f515dec789b"
+  integrity sha1-zsuCUEfAD15msUL5D+1PUV3seJs=
 
 foreach@^2.0.5:
   version "2.0.5"

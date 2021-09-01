@@ -3,6 +3,8 @@ import Head from 'next/head'
 import styles from '../styles/Discovery.module.css'
 import React, { useEffect, useState } from 'react';
 import { Input, Cascader } from 'antd';
+import Header from '../components/Header';
+import axios from 'axios';
 
 const { Search } = Input;
 
@@ -11,26 +13,30 @@ const Discover: NextPage = () => {
   const [dataDiscovery, setDataDiscovery] = useState<any[]>([]);
 
   const onSearch = async(data: string): Promise<void> => {
-    // setDataDiscovery(await hashtagsService(data));
-    console.log('onSearch:: ', data);
+    
+    try {
+      const res = await axios.get(`http://localhost:8888/discovery?search=${data}`);
+      console.log('onSearch:: ', data, ' res:: ', res.status);
+      if(res.status == 200){
+        setDataDiscovery(res.data);
+        console.log('onSearch:: ', data, ' res:: ', res.data);
+      }
+    } catch (err) {
+      console.log('ERROR onSearch:: ', data, ' res:: ', err);
+    }
+    
   }
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Discovery | myCrawler marcelio911s </title>
-        <meta name="description" content="For research and create database info from posts in Tiktok" />
-        <meta name="author" content="marcelio911" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header title={'Discovery | myCrawler marcelio911s'}></Header>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Discoverys
+          Discovery
         </h1>
 
         <p className={styles.description}>
-          <input placeholder="insert hashtags" className="search"/>
           <Input
             addonBefore={<Cascader placeholder="insert hashtags" style={{ width: 150 }} />}
             defaultValue="search"

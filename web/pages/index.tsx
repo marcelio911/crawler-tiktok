@@ -1,19 +1,14 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import ssidTt from '../configurations/ssidTt';
+import ssidTt from '../../server/config/ssid_tt';
+import Header from '../components/Header';
 
 const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Crawler Tiktok | marcelio911</title>
-        <meta name="description" content="For research and create database info from posts in Tiktok" />
-        <meta name="author" content="marcelio911" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header title={'Crawler Tiktok | marcelio911'}></Header>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -22,7 +17,6 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           Get started by editing{' '} ssidTt {ssidTt}
-          <code className={styles.code}>pages/index.js</code>
         </p>
 
         <div className={styles.grid}>

@@ -4,7 +4,7 @@ var leveldown = require('leveldown');
 // 1) Create our store
 var db = levelup(leveldown('./drivers/mydb'))
 
-const discoveryRepo = {
+const discoveryRepoCopy = {
   post: async (key, dataValues) => {
     // 2) Put a key & value
     db.put(`${key}`, dataValues, function (err) {
@@ -23,4 +23,4 @@ const discoveryRepo = {
   }
 }
 
-module.exports = discoveryRepo;
+module.exports = discoveryRepoCopy;

@@ -5,6 +5,7 @@
   "author": "marcelio911",
   "license": "MIT",
   "devDependencies": {
+    "mongodb": "^4.1.1",
     "nodemon": "^2.0.12",
     "tiktok-scraper": "^1.4.36"
   },

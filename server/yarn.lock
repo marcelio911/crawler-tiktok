@@ -46,6 +46,24 @@
   dependencies:
     "@types/babel-types" "*"
 
+"@types/node@*":
+  version "16.7.10"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/@types/node/-/node-16.7.10.tgz#7aa732cc47341c12a16b7d562f519c2383b6d4fc"
+  integrity sha1-eqcyzEc0HBKha31WL1GcI4O21Pw=
+
+"@types/webidl-conversions@*":
+  version "6.1.1"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/@types/webidl-conversions/-/webidl-conversions-6.1.1.tgz#e33bc8ea812a01f63f90481c666334844b12a09e"
+  integrity sha1-4zvI6oEqAfY/kEgcZmM0hEsSoJ4=
+
+"@types/whatwg-url@^8.2.1":
+  version "8.2.1"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/@types/whatwg-url/-/whatwg-url-8.2.1.tgz#f1aac222dab7c59e011663a0cb0a3117b2ef05d4"
+  integrity sha1-8arCItq3xZ4BFmOgywoxF7LvBdQ=
+  dependencies:
+    "@types/node" "*"
+    "@types/webidl-conversions" "*"
+
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -402,12 +420,19 @@ browser-process-hrtime@^1.0.0:
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/browser-process-hrtime/-/browser-process-hrtime-1.0.0.tgz#3c9b4b7d782c8121e56f10106d84c0d0ffc94626"
   integrity sha1-PJtLfXgsgSHlbxAQbYTA0P/JRiY=
 
+bson@^4.5.1:
+  version "4.5.1"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/bson/-/bson-4.5.1.tgz#02e9d649ce017ab14ed258737756c11809963d6c"
+  integrity sha1-AunWSc4BerFO0lhzd1bBGAmWPWw=
+  dependencies:
+    buffer "^5.6.0"
+
 buffer-crc32@^0.2.1, buffer-crc32@^0.2.13:
   version "0.2.13"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
   integrity sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=
 
-buffer@^5.1.0, buffer@^5.5.0:
+buffer@^5.1.0, buffer@^5.5.0, buffer@^5.6.0:
   version "5.7.1"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/buffer/-/buffer-5.7.1.tgz#ba62e7c13133053582197160851a8f648e99eed0"
   integrity sha1-umLnwTEzBTWCGXFghRqPZI6Z7tA=
@@ -862,6 +887,11 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
+
+denque@^1.5.0:
+  version "1.5.1"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/denque/-/denque-1.5.1.tgz#07f670e29c9a78f8faecb2566a1e2c11929c5cbf"
+  integrity sha1-B/Zw4pyaePj67LJWah4sEZKcXL8=
 
 depd@~1.1.2:
   version "1.1.2"
@@ -1892,6 +1922,11 @@ media-typer@0.3.0:
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
+memory-pager@^1.0.2:
+  version "1.5.0"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/memory-pager/-/memory-pager-1.5.0.tgz#d8751655d22d384682741c972f2c3d6dfa3e66b5"
+  integrity sha1-2HUWVdItOEaCdByXLyw9bfo+ZrU=
+
 merge-descriptors@1.0.1:
   version "1.0.1"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
@@ -1965,6 +2000,25 @@ mkdirp@^1.0.3:
   version "1.0.4"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha1-PrXtYmInVteaXw4qIh3+utdcL34=
+
+mongodb-connection-string-url@^2.0.0:
+  version "2.0.0"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/mongodb-connection-string-url/-/mongodb-connection-string-url-2.0.0.tgz#72cea65084ffa45655670070efb57bb0a5da46bc"
+  integrity sha1-cs6mUIT/pFZVZwBw77V7sKXaRrw=
+  dependencies:
+    "@types/whatwg-url" "^8.2.1"
+    whatwg-url "^9.1.0"
+
+mongodb@^4.1.1:
+  version "4.1.1"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/mongodb/-/mongodb-4.1.1.tgz#d328e832675e7351f58b642f833126dc89ac2e66"
+  integrity sha1-0yjoMmdec1H1i2QvgzEm3ImsLmY=
+  dependencies:
+    bson "^4.5.1"
+    denque "^1.5.0"
+    mongodb-connection-string-url "^2.0.0"
+  optionalDependencies:
+    saslprep "^1.0.0"
 
 morgan@~1.9.1:
   version "1.9.1"
@@ -2596,6 +2650,13 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.2.0:
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
+saslprep@^1.0.0:
+  version "1.0.3"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/saslprep/-/saslprep-1.0.3.tgz#4c02f946b56cf54297e347ba1093e7acac4cf226"
+  integrity sha1-TAL5RrVs9UKX40e6EJPnrKxM8iY=
+  dependencies:
+    sparse-bitfield "^3.0.3"
+
 saxes@^5.0.1:
   version "5.0.1"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/saxes/-/saxes-5.0.1.tgz#eebab953fa3b7608dbe94e5dadb15c888fa6696d"
@@ -2728,6 +2789,13 @@ source-map@~0.6.1:
   version "0.6.1"
   resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+
+sparse-bitfield@^3.0.3:
+  version "3.0.3"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/sparse-bitfield/-/sparse-bitfield-3.0.3.tgz#ff4ae6e68656056ba4b3e792ab3334d38273ca11"
+  integrity sha1-/0rm5oZWBWuks+eSqzM004JzyhE=
+  dependencies:
+    memory-pager "^1.0.2"
 
 sshpk@^1.7.0:
   version "1.16.1"
@@ -3153,6 +3221,14 @@ whatwg-url@^8.0.0, whatwg-url@^8.5.0:
   integrity sha1-ZWp45RD/jzk3vAvL6fXArDWUG3c=
   dependencies:
     lodash "^4.7.0"
+    tr46 "^2.1.0"
+    webidl-conversions "^6.1.0"
+
+whatwg-url@^9.1.0:
+  version "9.1.0"
+  resolved "https://pkgs.dev.azure.com/DEVOPS-RCHLO/_packaging/DEVOPS-RCHLO/npm/registry/whatwg-url/-/whatwg-url-9.1.0.tgz#1b112cf237d72cd64fa7882b9c3f6234a1c3050d"
+  integrity sha1-GxEs8jfXLNZPp4grnD9iNKHDBQ0=
+  dependencies:
     tr46 "^2.1.0"
     webidl-conversions "^6.1.0"
 

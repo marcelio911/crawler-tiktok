@@ -33,15 +33,16 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
+.title {
   text-decoration: none;
+  font-size: 14px;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.title:hover,
+.title:focus,
+.title:active {
+  transform: matrix();
+  color:#40a9ff;
 }
 
 .title {
@@ -58,6 +59,7 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+  width: 90%;
 }
 
 .code {
@@ -90,34 +92,10 @@
   width: 45%;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.resultDiscovery{
+  color: rgb(206, 57, 11);
+  font-weight: 400;
+  font-size: 1.1vmin;
 }
 
 .logo {
@@ -130,4 +108,24 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.searchBar {
+  width: 978px;
+}
+
+.ul {
+  list-style: none;
+  padding: 2vmin 5vmin;
+  margin-top: 1vmin;
+}
+
+.li {
+  display:inline;
+  background: #277ae1;
+  color: white;
+  font-weight: 300;
+  padding: 1vmin 2vmin;
+  margin: 1vmin;
+  transform: matrix();
 }

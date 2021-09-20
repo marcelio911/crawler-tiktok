@@ -33,7 +33,7 @@ const Discover: NextPage = () => {
   const onDiscovery = async (data: string): Promise<void> => {
     setState({loading: true});
     await discoveryService.onDiscovery(data);
-    onSearch(data);
+    await refreshHashTags();
     setState({loading: false});
   };
 

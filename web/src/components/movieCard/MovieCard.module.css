@@ -8,7 +8,7 @@
 
 #embbedded_videos, .tiktok_embed {
   width: 250px;
-  height: 226px;
+  height: 100%;
   display: inline-block;
 }
 
@@ -31,8 +31,8 @@
 }
 
 .card img, .skeleton_image {
-  width: 100%;
-  height: 90%;
+  width: 50%;
+  height: 50%;
 }
 
 .card video {

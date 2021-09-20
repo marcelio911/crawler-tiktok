@@ -30,7 +30,7 @@ const discoveryRepo = {
   constructor: (connection) => {
     _db = connection;
   },
-  insert: async (collectionName, responseCrawler) => {
+  insert: async (collectionName, columnName, responseCrawler) => {
     if (!responseCrawler) {
       console.log('responseCrawler is empty');
       return;
@@ -38,9 +38,12 @@ const discoveryRepo = {
     // Create a collection
     var collection = _db.collection(collectionName);
     // Insert some intial data into the collection
-    await collection.replaceOne(
-      responseCrawler,
-      { w: 1, keepGoing: true },
+    await collection.updateOne(
+      {'keySearch': columnName},
+      {'$set': {
+        ...responseCrawler
+      }},
+      { w: 1, keepGoing: true, upsert: true },
       function (err, result) {
         if (err) {
           console.log("err:: ", err);
@@ -59,8 +62,8 @@ const discoveryRepo = {
   insertToMany: async (key, responseCrawler) => {
     try {
       const hotkeyAdapter=  await HotkeyAdapter(key);
-      await discoveryRepo.insert('hotKeys', hotkeyAdapter);
-      await discoveryRepo.insert('discoveries', { ...hotkeyAdapter, responseCrawler });
+      await discoveryRepo.insert('hotKeys', hotkeyAdapter, hotkeyAdapter);
+      await discoveryRepo.insert('discoveries', hotkeyAdapter, { ...hotkeyAdapter, responseCrawler });
     } catch (err){
       throw err;
     }

@@ -30,60 +30,67 @@ const MovieCard: FC<Props> = (props) => {
           //   key={`ink${idx}`}
           //   rel="noreferrer"
           // >
-            <div key={idx} id={styles.embbedded_videos} className={styles.card}>
-              {/* <Skeleton.Image className={styles.skeleton_image} /> */}
-              {/* <Image
-                src={e.authorMeta.avatar}
-                width={150}
-                height={210}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                alt={e.authorMeta.name}
-              /> */}
-              <blockquote
+          <div key={idx} id={styles.embbedded_videos} className={styles.card}>
+            <Skeleton.Image className={styles.skeleton_image} />
+            <Image
+              src={e.musicMeta.coverLarge}
+              width={150}
+              height={210}
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+              alt={e.authorMeta.name}
+            />
+            <div id="details">
+              <p>
+                {new Date(Number(e.createTime) * 1000).toLocaleDateString()}
+                <br />
+                {e.hashtags.map((hash, idxHah) => (
+                  <a
+                    key={idxHah}
+                    title={`${hash.title}`}
+                    target="_blank"
+                    onClick={() => {
+                      props.onSearch(hash.name);
+                    }}
+                    // href={`https://www.tiktok.com/tag/${hash.name}`} rel="noreferrer"
+                  >
+                    {`#${hash.name} `}
+                  </a>
+                ))}
+              </p>
+              <p>{`${e.hashtags[0].title}😍🇧🇷🇧🇷`}</p>
+              <p>
+                {e.authorMeta.name}
+                <br />
+              </p>
+              <div
                 cite={e.webVideoUrl}
                 data-video-id={e.secretID}
                 className={styles.tiktok_embed}
-
               >
                 <section>
                   <a
                     target="_blank"
                     title={e.authorMeta.name}
-                    href={e.webVideoUrl} rel="noreferrer"
+                    href={e.webVideoUrl}
+                    rel="noreferrer"
                   >
-                    {'@'}{e.authorMeta.name}
+                    {"@"}
+                    {e.authorMeta.name}
                   </a>
                   <a
                     target="_blank"
                     title={`♬ ${e.musicMeta.musicAuthor}`}
-                    href={e.musicMeta.playUrl} rel="noreferrer">
+                    href={e.musicMeta.playUrl}
+                    rel="noreferrer"
+                  >
                     ♬ {e.musicMeta.musicName}
                   </a>
                 </section>
-              </blockquote>
-              <div id="details">
-                <p>
-                  {new Date(Number(e.createTime) * 1000).toLocaleDateString()}<br/>
-                  {e.hashtags.map((hash, idxHah) => (
-                    <a
-                      key={idxHah}
-                      title={`${hash.title}`}
-                      target="_blank"
-                      onClick={()=> {props.onSearch(hash.name) }}
-                      // href={`https://www.tiktok.com/tag/${hash.name}`} rel="noreferrer"
-                    >
-                      {`#${hash.name} `}
-                    </a>
-                  ))}😍🇧🇷
-                </p>
-                <p>
-                  {e.authorMeta.name}
-                  <br />
-                </p>
               </div>
             </div>
+          </div>
           // </a>
         ))}
       </div>

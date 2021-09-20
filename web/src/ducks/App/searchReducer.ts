@@ -1,20 +1,39 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import type { AppState, AppThunk } from '../../app/store'
-// import { fetchCount } from './SearchAPI'
-
+import formmatReport from './formmatReport';
 
 export interface SearchState {
   readonly screen?: string;
   readonly error?: string;
   readonly foundItensBySearch?: any[];
   readonly hashtags?: any[];
+  readonly reports?:  {
+            size: number;
+            hashtags: any[];
+            repeated: number;
+            playCount: number;
+            commentCount: number;
+            downloaded: number;
+            diggCount: number;
+            shareCount: number;
+        };
   readonly keySearch?: string;
 }
 
 const initialState: SearchState = {
     foundItensBySearch: [],
     hashtags: [],
+    reports: {
+      size: 0,
+      hashtags: [],
+      repeated: 0,
+      playCount: 0,
+      commentCount: 0,
+      downloaded: 0,
+      diggCount: 0,
+      shareCount: 0,
+    },
     error: undefined,
     keySearch: '',
     screen: undefined,
@@ -41,7 +60,9 @@ export const SearchSlice = createSlice({
   reducers: {
     setResult: (state, action: PayloadAction<any[]>) => {
       state.foundItensBySearch = action.payload;
-      
+      console.log('action.payload:: ', action.payload);
+      state.reports = formmatReport(action.payload);
+
     },
     setHashtagsState: (state, action: PayloadAction<any[] | undefined>) => {
       state.hashtags = action.payload;
@@ -65,7 +86,7 @@ export const search = (state: AppState) => state.search;
 export const setRegistersFound =
   (amount: any[]): AppThunk =>
   (dispatch, getState) => {
-    console.log('ammount:: ', amount);
+    console.log('ammount:: ', JSON.stringify(amount));
     dispatch(setResult(amount));
   }
 export const setHashtags =

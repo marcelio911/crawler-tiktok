@@ -33,15 +33,14 @@ const Discover: NextPage = () => {
   const onDiscovery = async (data: string): Promise<void> => {
     setState({loading: true});
     await discoveryService.onDiscovery(data);
-    await refreshHashTags();
+    onSearch(data);
     setState({loading: false});
   };
 
   const onSearch = async (data: string): Promise<void> => {
     setState({loading: true});
-    await discoveryService.onDiscovery(data);
     const values = await discoveryService.onSearch(data);
-    console.log("values:: ", values);
+    await refreshHashTags();
     dispatch(setRegistersFound(values));
     setState({loading: false});
   };
@@ -63,16 +62,27 @@ const Discover: NextPage = () => {
     <div className={styles.container}>
       <Header title={"Discovery | myCrawler marcelio911s"}></Header>
       <Script async src="https://www.tiktok.com/embed.js"></Script>
+      <LoadingOverlay
+          active={state.loading}
+          spinner
+          text='Aguarde estamos coletando mais dados...'
+          className={styles.loadingOverlay}
+          >
+      </LoadingOverlay>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Sua audiência</h1>
         
-        <div id={styles.actions}>
-          <span>{'Hashtags: '}{registers.hashtags?.length}</span>
-          <span>{'Top: '}{registers.foundItensBySearch?.length}</span>
-        </div>
-
-        <div className={styles.description}>
+        <section id={styles.actions}>
+          <span>{'Hashtags: '}{registers.reports?.hashtags?.length}</span>
+          <span>{'Mentions: '}{registers.reports?.size}</span>
+          <span>{'Down: '}{registers.reports?.downloaded}</span>
+          <span>{'Views: '}{registers.reports?.playCount}</span>
+          <span>{'Comments: '}{registers.reports?.commentCount}</span>
+          <span>{'Likes: '}{registers.reports?.diggCount}</span>
+        </section>
+        <br/> 
+        <section className={styles.description}>
+          <h1 className={styles.title}>Sua audiência</h1>
           <Search
             placeholder={`input search text: ${state.loading}`}
             onSearch={onDiscovery}
@@ -81,32 +91,27 @@ const Discover: NextPage = () => {
           />
           {<span>{state.loading}</span>}{state.loading && <Spin indicator={antIcon} />}
           <p className={styles.resultDiscovery}>{dataDiscovery}</p>          
-        </div>
-
-        
-        <ul className={styles.ul}>
-          {registers.hashtags && registers.hashtags.map((value, idx) => (
-            <li
-              className={styles.li}
-              key={idx}
-              onClick={() => {onSearch(value?.keySearch)}}
-            >
-              <a>{`#${value?.keySearch}`}</a>
-            </li>
-          ))}
-        </ul>
+        </section>
+        <br/> <br/> <br/> <br/> <br/> 
+        <section id="hashtags">
+          <ul className={styles.ul}>
+            {registers.hashtags && registers.hashtags.map((value, idx) => (
+              <li
+                className={styles.li}
+                key={idx}
+                onClick={() => {onSearch(value?.keySearch)}}
+              >
+                <a>{`#${value?.keySearch}`}</a>
+              </li>
+            ))}
+          </ul>
+        </section>        
 
         {registers.foundItensBySearch?.map((value, idx) => (
-          <MovieCard key={idx} thumb={value} onSearch={onSearch}></MovieCard>
+          <MovieCard key={idx} thumb={value} onSearch={onDiscovery}></MovieCard>
         ))}
+       
       </main>
-      <LoadingOverlay
-        active={state.loading}
-        spinner
-        text='Aguarde estamos atualizandos os dados...'
-        >
-        <p>Some content or children or something.</p>
-      </LoadingOverlay>
     </div>
   );
 };

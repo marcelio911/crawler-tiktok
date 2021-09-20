@@ -65,13 +65,12 @@ export const search = (state: AppState) => state.search;
 export const setRegistersFound =
   (amount: any[]): AppThunk =>
   (dispatch, getState) => {
+    console.log('ammount:: ', amount);
     dispatch(setResult(amount));
   }
 export const setHashtags =
   (hashtags: any[] | undefined): AppThunk =>
   (dispatch, getState) => {
-    console.log('hashtags12: ', hashtags);
-    console.log('getState: ', getState);
     dispatch(setHashtagsState(hashtags));
   }
 

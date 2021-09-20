@@ -38,7 +38,7 @@ const discoveryRepo = {
     // Create a collection
     var collection = _db.collection(collectionName);
     // Insert some intial data into the collection
-    await collection.insertOne(
+    await collection.replaceOne(
       responseCrawler,
       { w: 1, keepGoing: true },
       function (err, result) {

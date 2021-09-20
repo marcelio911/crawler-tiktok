@@ -1,43 +1,20 @@
 import React, { FC } from "react";
 import { Skeleton, Space, Divider, Switch, Form, Radio } from "antd";
+import Image from "next/image";
+import ReactPlayer from "react-player/lazy";
 
 import styles from "./MovieCard.module.css";
-
-interface Content {
-  authorMeta: {
-    avatar: string;
-    digg: number;
-    fans: number;
-    following: number;
-    heart: number;
-    name: string;
-    nickName: "Reciclarte Artesanato Criativo";
-    secUid: string;
-    signature: string;
-    verified: boolean;
-    video: number;
-  };
-  commentCount: number;
-  covers: { default: string; dynamic: string; origin: string };
-  createTime: number;
-  diggCount: number;
-  downloaded: boolean;
-  hashtags: Array<{ id: number; name: string; title: string; cover: string }>;
-  playCount: number;
-  shareCount: number;
-  text: string;
-  videoUrl: string;
-  webVideoUrl: string;
-}
+import TikTokResult from "../../interfaces/tiktokResult";
 
 interface Thumbnail {
   createdAt?: number;
   keySearch?: number;
-  responseCrawler?: Content[];
+  responseCrawler?: TikTokResult[];
 }
 
 interface Props {
   thumb?: Thumbnail;
+  onSearch: (data: string) => Promise<void>;
 }
 
 const MovieCard: FC<Props> = (props) => {
@@ -47,15 +24,67 @@ const MovieCard: FC<Props> = (props) => {
     <div id={styles.movieRow_listarea}>
       <div id={styles.list_videos}>
         {props.thumb?.responseCrawler?.map((e, idx) => (
-          <div key={idx} id={styles.embbedded_videos} className={styles.card}>
-            <Skeleton.Image />
-            {/* <Skeleton active /> */}
-            <span>
-              {e.createTime +
-                " _ " +
-                new Date(Number(e.createTime)).toLocaleDateString()}
-            </span>
-          </div>
+          // <a
+          //   href={e.webVideoUrl}
+          //   target="_blank"
+          //   key={`ink${idx}`}
+          //   rel="noreferrer"
+          // >
+            <div key={idx} id={styles.embbedded_videos} className={styles.card}>
+              {/* <Skeleton.Image className={styles.skeleton_image} /> */}
+              {/* <Image
+                src={e.authorMeta.avatar}
+                width={150}
+                height={210}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+                alt={e.authorMeta.name}
+              /> */}
+              <blockquote
+                cite={e.webVideoUrl}
+                data-video-id={e.secretID}
+                className={styles.tiktok_embed}
+
+              >
+                <section>
+                  <a
+                    target="_blank"
+                    title={e.authorMeta.name}
+                    href={e.webVideoUrl} rel="noreferrer"
+                  >
+                    {'@'}{e.authorMeta.name}
+                  </a>
+                  <a
+                    target="_blank"
+                    title={`♬ ${e.musicMeta.musicAuthor}`}
+                    href={e.musicMeta.playUrl} rel="noreferrer">
+                    ♬ {e.musicMeta.musicName}
+                  </a>
+                </section>
+              </blockquote>
+              <div id="details">
+                <p>
+                  {new Date(Number(e.createTime) * 1000).toLocaleDateString()}<br/>
+                  {e.hashtags.map((hash, idxHah) => (
+                    <a
+                      key={idxHah}
+                      title={`${hash.title}`}
+                      target="_blank"
+                      onClick={()=> {props.onSearch(hash.name) }}
+                      // href={`https://www.tiktok.com/tag/${hash.name}`} rel="noreferrer"
+                    >
+                      {`#${hash.name} `}
+                    </a>
+                  ))}😍🇧🇷
+                </p>
+                <p>
+                  {e.authorMeta.name}
+                  <br />
+                </p>
+              </div>
+            </div>
+          // </a>
         ))}
       </div>
     </div>

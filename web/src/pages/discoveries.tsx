@@ -62,15 +62,16 @@ const Discover: NextPage = () => {
     <div className={styles.container}>
       <Header title={"Discovery | myCrawler marcelio911s"}></Header>
       <Script async src="https://www.tiktok.com/embed.js"></Script>
-      <LoadingOverlay
-          active={state.loading}
-          spinner
-          text='Aguarde estamos coletando mais dados...'
-          className={styles.loadingOverlay}
-          >
-      </LoadingOverlay>
+      
 
       <main className={styles.main}>
+        <LoadingOverlay
+            active={state.loading}
+            spinner
+            text='Aguarde estamos coletando mais dados...'
+            className={styles.loadingOverlay}
+            >
+        </LoadingOverlay>
         
         <section id={styles.actions}>
           <span>{'Hashtags: '}{registers.reports?.hashtags?.length}</span>

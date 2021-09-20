@@ -59,10 +59,6 @@
   }
 }
 
-.loadingOverlay{
-  position: fixed !important;
-  z-index: 99;
-}
 
 .searchBar {
   width: 978px;

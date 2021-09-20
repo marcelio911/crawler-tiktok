@@ -32,7 +32,7 @@ const MovieCard: FC<Props> = (props) => {
           // >
           <div key={idx} id={styles.embbedded_videos} className={styles.card}>
             <Skeleton.Image className={styles.skeleton_image} />
-            <Image
+            {/* <Image
               src={e.musicMeta.coverLarge}
               width={150}
               height={210}
@@ -40,7 +40,7 @@ const MovieCard: FC<Props> = (props) => {
               objectFit="cover"
               quality={100}
               alt={e.authorMeta.name}
-            />
+            /> */}
             <div id="details">
               <p>
                 {new Date(Number(e.createTime) * 1000).toLocaleDateString()}

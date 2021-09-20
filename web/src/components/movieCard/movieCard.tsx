@@ -65,7 +65,7 @@ const MovieCard: FC<Props> = (props) => {
                 <br />
               </p>
               <div
-                cite={e.webVideoUrl}
+                // cite={e.webVideoUrl}
                 data-video-id={e.secretID}
                 className={styles.tiktok_embed}
               >

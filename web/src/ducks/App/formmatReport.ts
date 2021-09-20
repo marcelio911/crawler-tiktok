@@ -2,8 +2,8 @@ const formmatReport = (payload: any): any => {
     const results = payload[0].responseCrawler;
 
     if (results?.length) {
-        const hashtags = [];
-        const repeated = [];
+        const hashtags: any[] = [];
+        const repeated: any[] = [];
         let playCount = 0;
         let commentCount = 0;
         let downloaded = 0;

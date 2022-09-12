@@ -36,7 +36,8 @@ const discoveryService = {
               callback(res.data, undefined);
             }
             callback([], undefined);
-          } catch (err) {
+          } catch (error: unknown) {
+            const err = error as Error;
             console.log('ERROR onSearch:: res:: ', err);
             callback(undefined, err);
           }    

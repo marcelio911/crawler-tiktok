@@ -26,23 +26,24 @@ const Discover: NextPage = () => {
 
   const [dataDiscovery, setDataDiscovery] = useState();
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
-  const [state, setState] = useState({
-    loading: false,
-  });
+  const [state, setState] = useState<{
+    loading: boolean;
+    key: string,
+  }>({loading: false, key: 'generated'});
 
   const onDiscovery = async (data: string): Promise<void> => {
-    setState({loading: true});
+    setState({loading: true, key: data});
     await discoveryService.onDiscovery(data);
     await refreshHashTags();
-    setState({loading: false});
+    setState({loading: false, key: data});
   };
 
   const onSearch = async (data: string): Promise<void> => {
-    setState({loading: true});
+    setState({loading: true, key: data});
     const values = await discoveryService.onSearch(data);
     await refreshHashTags();
     dispatch(setRegistersFound(values));
-    setState({loading: false});
+    setState({loading: false, key: data});
   };
   
   const refreshHashTags = async () => {
@@ -65,13 +66,14 @@ const Discover: NextPage = () => {
       
 
       <main className={styles.main}>
-        <LoadingOverlay
+        {/* <LoadingOverlay
+            key={state.key}
             active={state.loading}
-            spinner
             text='Aguarde estamos coletando mais dados...'
             className={styles.loadingOverlay}
+            spinner={<BounceLoader />}
             >
-        </LoadingOverlay>
+        </LoadingOverlay> */}
         
         <section id={styles.actions}>
           <span>{'Hashtags: '}{registers.reports?.hashtags?.length}</span>

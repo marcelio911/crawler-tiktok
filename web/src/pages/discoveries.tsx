@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, NextPageContext } from "next";
 import Script from 'next/script'
 import styles from "../styles/Discovery.module.css";
 import React, { useEffect, useState } from "react";
@@ -14,13 +14,14 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { search, setRegistersFound, setHashtags } from "../ducks/App/searchReducer";
 import LoadingOverlay from 'react-loading-overlay';
 import BounceLoader from 'react-spinners/BounceLoader';
-
-
-
 // import { RootState } from "../store/reducers";
 // import { Actions } from "../ducks/App/duck";
+interface StatelessPage<P = {}> extends React.Component<P> {
+  getInitialProps?: (ctx: NextPageContext) => Promise<P>
+  getServerSideProps?: (ctx: NextPageContext) => Promise<P>
+}
 
-const Discover: NextPage = () => {
+const Discover: NextPage<StatelessPage> = () => {
   const dispatch = useAppDispatch()
   const registers = useAppSelector(search)
 
@@ -54,6 +55,13 @@ const Discover: NextPage = () => {
       }
     });
   }
+
+  Discover.getInitialProps = async (): Promise<any> => {
+    // ... stuff
+    refreshHashTags();
+    onSearch('piparn')
+  }
+  
 
   useEffect(() => {
     refreshHashTags();

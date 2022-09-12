@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { Skeleton, Space, Divider, Switch, Form, Radio } from "antd";
-import Image from "next/image";
 import ReactPlayer from "react-player/lazy";
 
 import styles from "./MovieCard.module.css";
 import TikTokResult from "../../interfaces/tiktokResult";
+import Image from "../Image/Image";
 
 interface Thumbnail {
   createdAt?: number;

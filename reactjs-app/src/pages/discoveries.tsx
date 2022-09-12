@@ -13,13 +13,18 @@ import { search, setRegistersFound, setHashtags } from "../ducks/App/searchReduc
 import LoadingOverlay from 'react-loading-overlay';
 import BounceLoader from 'react-spinners/BounceLoader';
 import { RouteProps } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AppState } from "../app/store";
 // import { RootState } from "../store/reducers";
 // import { Actions } from "../ducks/App/duck";
 
 
 const Discover = (): JSX.Element => {
   const dispatch = useAppDispatch()
-  const registers = useAppSelector(search)
+
+  const registers = useSelector((state: AppState) => {
+    return state.search;
+  });
 
   const [dataDiscovery, setDataDiscovery] = useState();
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -52,12 +57,11 @@ const Discover = (): JSX.Element => {
     });
   }
 
-  // Discover.getInitialProps = async (): Promise<any> => {
-  //   // ... stuff
-  //   refreshHashTags();
-  //   onSearch('piparn')
-  // }
+  
 
+  useEffect(() => {
+    console.log('registers:: ', registers);
+  }, [registers]);
 
   useEffect(() => {
     refreshHashTags();
@@ -111,8 +115,9 @@ const Discover = (): JSX.Element => {
             {<span>{state.loading}</span>}{state.loading && <Spin indicator={antIcon} />}
             <p className={styles.resultDiscovery}>{dataDiscovery}</p>
           </section>
-          <br /> <br /> <br /> <br /> <br />
+          <br /> <br /> <br />
           <section id="hashtags">
+            Teste: {registers.hashtags?.length}
             <ul className={styles.ul}>
               {registers.hashtags && registers.hashtags.map((value, idx) => (
                 <li

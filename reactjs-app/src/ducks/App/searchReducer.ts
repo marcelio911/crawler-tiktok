@@ -65,8 +65,11 @@ export const SearchSlice = createSlice({
 
     },
     setHashtagsState: (state, action: PayloadAction<any[] | undefined>) => {
+      console.log('setHashtagsState::action ', JSON.stringify(action));
+
       state.hashtags = action.payload;
-      
+      console.log('setHashtagsState:: ', JSON.stringify(state));
+
     },
     keySearch: (state, action: PayloadAction<string>) => {
       state.keySearch = action.payload;

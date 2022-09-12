@@ -1,9 +1,10 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-// import loggerMiddleware from 'redux-logger';
+import loggerMiddleware from 'redux-logger';
 import { persistReducer } from 'redux-persist';
 import reducers from './reducers';
 import rootSaga from './sagas';
+import createLogger from 'redux-logger';
 
 const persistedReducer = persistReducer(
   reducers.rootPersistConfig,
@@ -11,14 +12,15 @@ const persistedReducer = persistReducer(
 );
 
 const sagaMiddleware = createSagaMiddleware();
-
 const middlewares = [];
 
 middlewares.push(sagaMiddleware);
-// middlewares.push(loggerMiddleware);
+middlewares.push(loggerMiddleware);
+const initialState = {};
 
 const store = createStore(
   persistedReducer,
+  initialState,
   compose(applyMiddleware(...middlewares)),
 );
 
